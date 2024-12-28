@@ -24,7 +24,7 @@ class CityService {
         }
     }
 
-    async upateCity(cityId , data) {
+    async updateCity(cityId , data) {
         try {
             const city = await cityRepository.updateCity(cityId , data);
             return city;
@@ -43,6 +43,17 @@ class CityService {
             throw error;
         }
     }
+
+    async getAllCities() {
+        try {
+            const cities = await cityRepository.getAllCities();
+            return cities;
+        } catch(error) {
+            console.log("Error in service layer:", error);
+            throw error;
+        }
+    }
+
 }
 
 module.exports = new CityService();
