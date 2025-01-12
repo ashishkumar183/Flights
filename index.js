@@ -7,6 +7,7 @@ const apiRoutes = require('./routes');
 
 const db = require('./models/index');
 const {City,Airport} = require('./models/index');
+// const {Airplanes} = require('./models/index');
 
 // const sequelize = require('sequelize');
 const city = require('./models/city');
@@ -23,12 +24,14 @@ app.listen(ServerConfig.PORT , async () => {
     if(process.env.SYNC_DB){
         db.sequelize.sync({alter: true});
     }
-
-    const city = await City.findOne({
-        where: {
-            id: 5
-        }
-    });
-    const airports = await city.getAirports();
+    // await Airplane.create({
+    //     modelNumber: 'Bombardier CRJ'
+    // });
+    // const city = await City.findOne({
+    //     where: {
+    //         id: 5
+    //     }
+    // });
+    // const airports = await city.getAirports();
     // console.log(city,airports)
 });
